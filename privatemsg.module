@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.29 2004-09-16 18:30:23 tdobes Exp $
+// $Id: privatemsg.module,v 1.30 2004-09-29 02:27:53 tdobes Exp $
 
 /**
  * Implementation of hook_help().
@@ -37,7 +37,8 @@ function privatemsg_menu($may_cache) {
     $items[] = array('path' => 'privatemsg',
                      'title' => t('view inbox') . ' ('. (int)_privatemsg_get_new_messages() .')',
                      'callback' => 'privatemsg_page',
-                     'access' => user_access('access private messages'));
+                     'access' => user_access('access private messages'),
+                     'type' => MENU_DYNAMIC_ITEM);
   }
   return $items;
 }
