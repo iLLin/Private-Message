@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.42 2005-02-11 06:24:53 tdobes Exp $
+// $Id: privatemsg.module,v 1.43 2005-02-11 06:30:21 tdobes Exp $
 
 /**
  * Implementation of hook_help().
@@ -411,7 +411,7 @@ function _privatemsg_delete($id) {
     if ($message->author == $user->uid) {
       db_query("UPDATE {privatemsg} SET author_del = 1 WHERE id = '%d'", $id);
     }
-    else if ($message->recipient == $user->uid) {
+    if ($message->recipient == $user->uid) {
       db_query("UPDATE {privatemsg} SET recipient_del = 1 WHERE id = '%d'", $id);
     }
 
