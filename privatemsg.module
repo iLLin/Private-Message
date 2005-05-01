@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.47 2005-04-30 05:55:05 tdobes Exp $
+// $Id: privatemsg.module,v 1.48 2005-05-01 16:49:48 tdobes Exp $
 
 /**
  * Implementation of hook_help().
@@ -192,7 +192,7 @@ function privatemsg_page() {
       $breadcrumb = array(l(t('Home'), ''), l(t('private messages'), 'privatemsg'));
       break;
     case 'msgto':
-      $msg->name = db_result(db_query("SELECT name FROM {users} WHERE uid = '%d'", $arg));
+      $msg->recipient = db_result(db_query("SELECT name FROM {users} WHERE uid = '%d'", $arg));
       $output = _privatemsg_form($msg);
       $title = t("Write a new message");
       $breadcrumb = array(l(t('Home'), ''), l(t('private messages'), 'privatemsg'));
