@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.48 2005-05-01 16:49:48 tdobes Exp $
+// $Id: privatemsg.module,v 1.49 2005-05-02 17:26:50 tdobes Exp $
 
 /**
  * Implementation of hook_help().
@@ -331,7 +331,7 @@ function _privatemsg_form($message = 0) {
 
   if ($message) {
     if (!is_object($message)) {
-      $message = db_fetch_object(db_query("SELECT subject, message, u.name FROM {privatemsg} p, {users} u WHERE u.uid = p.author AND id = '%d' AND recipient = '%d'", $message, $user->uid));
+      $message = db_fetch_object(db_query("SELECT subject, message, u.name AS recipient FROM {privatemsg} p, {users} u WHERE u.uid = p.author AND id = '%d' AND recipient = '%d'", $message, $user->uid));
 
       if (!stristr($message->subject, t("Re:"))) {
         $message->subject = t("Re:").' '.$message->subject;
