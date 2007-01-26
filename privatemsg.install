@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.install,v 1.3 2006-08-11 17:58:33 mindless Exp $
+// $Id: privatemsg.install,v 1.4 2007-01-26 16:24:01 mindless Exp $
 
 function privatemsg_install() {
   switch ($GLOBALS['db_type']) {
@@ -15,8 +15,8 @@ function privatemsg_install() {
           newmsg        tinyint unsigned NOT NULL,
           hostname      varchar(255) NOT NULL,
           folder        int(10) unsigned NOT NULL DEFAULT '0',
-          author_del    tinyint unsigned NOT NULL,
-          recipient_del tinyint unsigned NOT NULL,
+          author_del    tinyint unsigned NOT NULL DEFAULT '0',
+          recipient_del tinyint unsigned NOT NULL DEFAULT '0',
           format        int(4) NOT NULL DEFAULT '0',
           key (recipient),
           key (folder)
