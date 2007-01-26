@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.63 2006-10-23 23:33:55 mindless Exp $
+// $Id: privatemsg.module,v 1.64 2007-01-26 17:53:20 mindless Exp $
 
 /**
  * Implementation of hook_help().
@@ -457,6 +457,16 @@ function _privatemsg_form($message = 0) {
   $contacts = array(t('Contacts'));
   while ($name = db_fetch_object($result)) {
     $contacts[] = check_plain($name->name);
+  }
+  if (module_exist('buddylist')) {
+    $result = db_query("SELECT u.name FROM {buddylist} b, {users} u WHERE b.buddy = u.uid AND b.uid = '%d'", $user->uid);
+    while ($name = db_fetch_object($result)) {
+      $buddyname = check_plain($name->name);
+      if (!in_array($buddyname, $contacts)) {
+        $contacts[] = $buddyname;
+      }
+    }
+    sort($contacts);
   }
   $form['quick'] = array(
       '#type' => 'select',
