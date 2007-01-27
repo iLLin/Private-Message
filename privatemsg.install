@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.install,v 1.4 2007-01-26 16:24:01 mindless Exp $
+// $Id: privatemsg.install,v 1.5 2007-01-27 00:56:10 mindless Exp $
 
 function privatemsg_install() {
   switch ($GLOBALS['db_type']) {
@@ -112,6 +112,14 @@ function privatemsg_install() {
         ' language 'plpgsql'");
       break;
   }
+}
+
+function privatemsg_uninstall() {
+  db_query("DROP TABLE {privatemsg}");
+  db_query("DROP TABLE {privatemsg_folder}");
+  db_query("DROP TABLE {privatemsg_archive}");
+  db_query("DELETE FROM {variable} WHERE name LIKE 'privatemsg_%'");
+  cache_clear_all('variables', 'cache');
 }
 
 /* Upgrade on mysql from versions before 22-May-2003:
