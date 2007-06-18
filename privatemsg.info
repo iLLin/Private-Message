@@ -1,5 +1,4 @@
-; $Id: privatemsg.info,v 1.1 2007-01-27 00:56:10 mindless Exp $
+; $Id: privatemsg.info,v 1.2 2007-06-18 22:53:55 dww Exp $
 name = Privatemsg
 description = Allow private messages between users
 package = Mail
-version = "$Name:  $"
