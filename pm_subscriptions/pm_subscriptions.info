@@ -1,0 +1,5 @@
+; $Id: pm_subscriptions.info,v 1.2 2008-06-10 08:09:44 litwol Exp $
+name = Private messages subscriptions
+description = Allow users to subscribe to private messages.
+dependencies = subscriptions mail_edit privatemsg
+package = Mail

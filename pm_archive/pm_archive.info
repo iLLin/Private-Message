@@ -1,0 +1,5 @@
+; $Id: pm_archive.info,v 1.2 2008-06-10 08:09:44 litwol Exp $
+name = Private messages archive
+description = Allow archiving private messages automatically during cron runs.
+package = Mail
+dependencies = privatemsg
