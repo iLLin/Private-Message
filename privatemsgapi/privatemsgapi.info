@@ -1,6 +1,0 @@
-; $Id: privatemsgapi.info,v 1.2 2008-06-10 08:27:48 litwol Exp $
-name = Private messages API
-description = Offers API for private messages
-version = VERSION
-package = Mail
-core = 6.x
