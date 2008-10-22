@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.94 2008-10-22 20:18:10 litwol Exp $
+// $Id: privatemsg.module,v 1.95 2008-10-22 21:14:10 litwol Exp $
 
 /**
  * @file
@@ -421,8 +421,8 @@ function privatemsg_view($thread_id) {
   if (user_access('write privatemsg') && $message_count > 0) {
     $output .= drupal_get_form('privatemsg_new');
   }
-  else {
-    drupal_set_message(t('There are no messages available to display'), 'error');
+  elseif ($message_count == 0) {
+    drupal_set_message(t('There are no messages available to display.'), 'error');
   }
   return $output;
 }
