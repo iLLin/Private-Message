@@ -1,0 +1,8 @@
+; $Id: pm_block_user.info,v 1.1 2008-11-05 05:29:47 litwol Exp $
+name = Block user messages
+description = Allows users to block other users from sending them messages.
+version = HEAD
+package = Mail
+core = 6.x
+dependencies[] = privatemsg
+
