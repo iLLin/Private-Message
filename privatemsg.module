@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.99 2008-11-05 05:42:37 litwol Exp $
+// $Id: privatemsg.module,v 1.100 2008-11-15 00:50:35 litwol Exp $
 
 /**
  * @file
@@ -190,6 +190,7 @@ function privatemsg_preprocess_privatemsg_view(&$vars) {
 //  drupal_set_message('<pre>'. print_r($vars,1 ) . '</pre>');
 
   $message = $vars['message'];
+  $vars['mid'] = $message['mid'];
   $vars['author_picture'] = theme('user_picture', $message['author']);
   $vars['author_name_link'] = theme('username', $message['author']);
   /**
