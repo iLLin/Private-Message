@@ -1,0 +1,8 @@
+; $Id: privatemsg_filter.info,v 1.1 2008-12-12 21:28:04 litwol Exp $
+name = Privatemsg filter
+description = Allow users to filter messages using tags or other criteria.
+version = HEAD
+package = Mail
+core = 6.x
+dependencies[] = privatemsg
+
