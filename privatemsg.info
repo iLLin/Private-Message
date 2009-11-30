@@ -1,6 +1,5 @@
-; $Id: privatemsg.info,v 1.5 2008-07-27 00:34:04 litwol Exp $
+; $Id: privatemsg.info,v 1.6 2009-11-30 17:37:15 berdir Exp $
 name = Private messages
 description = Allow private messages between users.
-version = VERSION
 package = Mail
 core = 6.x

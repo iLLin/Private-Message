@@ -1,0 +1,7 @@
+; $Id: pm_email_notify.info,v 1.2 2009-11-30 17:37:15 berdir Exp $
+name = Privatemsg Email Notification
+description = Notifies users about new Private Messages via Email.
+package = Mail
+core = 6.x
+dependencies[] = privatemsg
+
