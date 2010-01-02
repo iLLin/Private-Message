@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.admin.inc,v 1.1 2009-12-02 20:03:59 berdir Exp $
+// $Id: privatemsg.admin.inc,v 1.2 2010-01-02 12:20:24 berdir Exp $
 
 /**
  * @file
@@ -26,6 +26,21 @@ function privatemsg_admin_settings() {
     '#title' => t('Inform the user about new messages on login'),
     '#default_value' => variable_get('privatemsg_display_loginmessage', TRUE),
     '#description' => t('This option can safely be disabled if the "New message indication" block is used instead.'),
+  );
+
+  $form['integration'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Integration settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#description' => t('These settings allow to configure the integration with other modules.'),
+  );
+  $form['integration']['privatemsg_popups'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Open "send private message" links in a popup'),
+    '#default_value' => variable_get('privatemsg_popups', TRUE),
+    '#disabled' => !module_exists('popups'),
+    '#description' => t('This requires the <a href="http://drupal.org/project/popups">Popups API module</a>.'),
   );
 
   $form['flush_deleted'] = array(
