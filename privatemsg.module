@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.114 2010-01-02 12:25:30 berdir Exp $
+// $Id: privatemsg.module,v 1.115 2010-01-04 15:56:56 berdir Exp $
 
 /**
  * @file
@@ -1476,6 +1476,9 @@ function privatemsg_get_link($recipients, $account = array(), $subject = NULL) {
   $validated = array();
   foreach ($recipients as $recipient) {
     if (!privatemsg_user_access('read privatemsg', $recipient)) {
+      continue;
+    }
+    if (variable_get('privatemsg_display_link_self', TRUE) == FALSE && $account->uid == $recipient->uid) {
       continue;
     }
     if (count(module_invoke_all('privatemsg_block_message', $account, array($recipient))) > 0) {
