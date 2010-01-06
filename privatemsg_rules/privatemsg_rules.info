@@ -1,0 +1,8 @@
+; $Id: privatemsg_rules.info,v 1.1 2010-01-06 18:41:33 berdir Exp $
+name = Privatemsg Rules Integrations
+description = Integrates Rules with Privatemsg, allows to act on message events and send private messages
+package = Mail
+core = 6.x
+dependencies[] = privatemsg
+dependencies[] = privatemsg_filter
+dependencies[] = rules
