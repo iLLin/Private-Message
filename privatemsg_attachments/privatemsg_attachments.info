@@ -1,0 +1,9 @@
+; $Id: privatemsg_attachments.info,v 1.1 2010-02-11 13:10:19 berdir Exp $
+name = Privatemsg attachments
+description = Allow users to add attachments to messages
+package = Mail
+core = 6.x
+dependencies[] = privatemsg
+dependencies[] = upload
+
+
