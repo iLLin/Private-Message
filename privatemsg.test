@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.test,v 1.6 2010-01-02 12:11:09 berdir Exp $
+// $Id: privatemsg.test,v 1.7 2010-02-17 10:05:45 berdir Exp $
 /**
  * @file
  * Test file for privatemsg.module
@@ -177,6 +177,17 @@ class PrivatemsgTestCase extends DrupalWebTestCase {
 
     // Load older messages and verify again.
     $this->clickLink(t('<<'));
+    $this->assertText(t('Displaying messages 1 - 23 of 23'), t('Pager is displayed'));
+    $this->assertText($bodies[0], t('Message is displayed.'));
+    $this->assertText($bodies[22], t('Message is displayed.'));
+    $this->assertNoText(t('&gt;&gt;'), t('Newer messages link not displayed.'));
+    $this->assertNoText(t('&lt;&lt;'), t('Older messages link not displayed.'));
+
+    // Check with max_amount = UNLIMITED and different default amount disabled.
+    variable_set('privatemsg_view_use_max_as_default', FALSE);
+
+    $this->drupalGet('messages');
+    $this->clickLink($subject);
     $this->assertText(t('Displaying messages 1 - 23 of 23'), t('Pager is displayed'));
     $this->assertText($bodies[0], t('Message is displayed.'));
     $this->assertText($bodies[22], t('Message is displayed.'));
