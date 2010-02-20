@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.admin.inc,v 1.4 2010-01-04 15:56:56 berdir Exp $
+// $Id: privatemsg.admin.inc,v 1.5 2010-02-20 08:56:58 berdir Exp $
 
 /**
  * @file
@@ -41,7 +41,7 @@ function privatemsg_admin_settings() {
     '#title' => t('Open "send private message" links in a popup'),
     '#default_value' => variable_get('privatemsg_popups', TRUE),
     '#disabled' => !module_exists('popups'),
-    '#description' => t('This requires the <a href="http://drupal.org/project/popups">Popups API module</a>.'),
+    '#description' => t('This requires the <a href="http://drupal.org/project/popups">Popups API module</a>. Also, the "Scan all pages for popup links." option needs to be enabled at <a href="!popups_admin_url">Popups Settings</a>.', array('!popups_admin_url' => url('admin/settings/popups'))),
   );
 
   $form['flush_deleted'] = array(
