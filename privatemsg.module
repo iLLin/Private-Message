@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.120 2010-02-25 18:33:50 berdir Exp $
+// $Id: privatemsg.module,v 1.121 2010-03-12 16:04:15 berdir Exp $
 
 /**
  * @file
@@ -997,7 +997,7 @@ function privatemsg_user($op, &$edit, &$account, $category = NULL) {
       if (variable_get('privatemsg_display_loginmessage', TRUE) && privatemsg_user_access()) {
         $count = privatemsg_unread_count();
         if ($count) {
-          drupal_set_message(t('You have <a href="@messages">%unread</a>.', array('@messages' => url('messages'), '%unread' => format_plural($count, '1 unread message', '@count unread messages'))));
+          drupal_set_message(format_plural($count, 'You have <a href="@messages">1 unread message</a>.', 'You have <a href="@messages">@count unread messages</a>', array('@messages' => url('messages'))));
         }
       }
       break;
