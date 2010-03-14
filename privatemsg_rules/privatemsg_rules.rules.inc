@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_rules.rules.inc,v 1.3 2010-03-12 15:59:54 berdir Exp $
+// $Id: privatemsg_rules.rules.inc,v 1.4 2010-03-14 21:02:10 berdir Exp $
 
 /**
 * Implementation of hook_rules_action_info().
@@ -455,5 +455,5 @@ function privatemsg_rules_thread_has_tag($thread_id, $account, $tag_settings) {
 
 function privatemsg_rules_thread_has_tag_form($settings, &$form) {
   // Reuse load tag form.
-  return privatemsg_rules_load_tag_form($settings, &$form);
+  return privatemsg_rules_load_tag_form($settings, $form);
 }
