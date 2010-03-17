@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.pages.inc,v 1.1 2009-12-02 20:03:59 berdir Exp $
+// $Id: privatemsg.pages.inc,v 1.2 2010-03-17 10:09:46 berdir Exp $
 
 /**
  * @file
@@ -41,6 +41,7 @@ function privatemsg_list(&$form_state, $argument = 'list', $uid = NULL) {
   $result = pager_query($query['query'], variable_get('privatemsg_per_page', 25), 0, $query['count']);
 
   $threads = array();
+  $form = array('#list_argument' => $argument);
   $form['#data'] = array();
   while ($row = db_fetch_array($result)) {
     // Store the raw row data.
