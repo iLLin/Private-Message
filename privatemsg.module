@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.123 2010-03-22 07:26:40 berdir Exp $
+// $Id: privatemsg.module,v 1.124 2010-03-25 22:33:00 berdir Exp $
 
 /**
  * @file
@@ -1339,10 +1339,10 @@ function _privatemsg_validate_message(&$message, $form = FALSE) {
 
   if (empty($message['recipients']) || !is_array($message['recipients'])) {
     if ($form) {
-      form_set_error('to', t('Disallowed to send a message without atleast one valid recipient'));
+      form_set_error('to', t('Disallowed to send a message without at least one valid recipient'));
     }
     else {
-      $messages['error'][] = t('Disallowed to send a message without atleast one valid recipient');
+      $messages['error'][] = t('Disallowed to send a message without at least one valid recipient');
     }
   }
 
