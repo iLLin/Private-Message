@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.124 2010-03-25 22:33:00 berdir Exp $
+// $Id: privatemsg.module,v 1.125 2010-04-05 17:35:30 berdir Exp $
 
 /**
  * @file
@@ -970,7 +970,7 @@ function privatemsg_user($op, &$edit, &$account, $category = NULL) {
       }
 
     case 'submit':
-      if ($category == 'account' && user_access('write privatemsg') && user_access('allow disabling privatemsg')) {
+      if ($category == 'account' && isset($edit['pm_enable']) && user_access('write privatemsg') && user_access('allow disabling privatemsg')) {
         $current = privatemsg_is_disabled($account);
         $disabled = (!$edit['pm_enable']);
         unset($edit['pm_enable']);
