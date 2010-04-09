@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_rules.rules.inc,v 1.4 2010-03-14 21:02:10 berdir Exp $
+// $Id: privatemsg_rules.rules.inc,v 1.5 2010-04-09 15:25:16 berdir Exp $
 
 /**
 * Implementation of hook_rules_action_info().
@@ -145,7 +145,7 @@ function privatemsg_rules_rules_defaults() {
  $config = array (
     'rules' =>
     array (
-      'rules_1' =>
+      'privatemsg_welcome_message' =>
       array (
         '#type' => 'rule',
         '#set' => 'event_user_insert',
@@ -238,7 +238,7 @@ function privatemsg_rules_rules_defaults() {
           ),
         ),
       ),
-      'rules_2' =>
+      'privatemsg_rules_autorespond' =>
       array (
         '#type' => 'rule',
         '#set' => 'event_privatemsg_insert',
