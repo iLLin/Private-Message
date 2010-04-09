@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_attachments.module,v 1.2 2010-02-20 08:57:56 berdir Exp $
+// $Id: privatemsg_attachments.module,v 1.3 2010-04-09 15:48:40 berdir Exp $
 
 /**
  * @file
@@ -78,7 +78,7 @@ function privatemsg_attachments_form_privatemsg_admin_settings_alter(&$form, &$f
     '#title' => t('Privatemsg attachments'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
-    '#weight' => -1,
+    '#weight' => 25,
   );
 
   $form['attachments']['privatemsg_attachments_upload_dir'] = array(
