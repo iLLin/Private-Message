@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.125 2010-04-05 17:35:30 berdir Exp $
+// $Id: privatemsg.module,v 1.126 2010-04-12 13:11:57 berdir Exp $
 
 /**
  * @file
@@ -798,6 +798,7 @@ function privatemsg_sql_load(&$fragments, $pmids, $account = NULL) {
     $fragments['query_args']['where'][]  = $account->uid;
   }
   $fragments['order_by'][] = 'pm.timestamp ASC';
+  $fragments['order_by'][] = 'pm.mid ASC';
 }
 
 /**
