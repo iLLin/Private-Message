@@ -1,5 +1,5 @@
 <?php
-// $Id: pm_block_user.module,v 1.5 2010-02-18 18:16:22 berdir Exp $
+// $Id: pm_block_user.module,v 1.6 2010-04-19 15:55:20 berdir Exp $
 
 /**
  * @file
@@ -81,6 +81,10 @@ function pm_block_user_theme() {
     'pm_block_user_list' => array(
       'arguments' => array('form' => NULL),
       'file'      => 'pm_block_user.pages.inc',
+    ),
+    'pm_block_user_actions' => array(
+      'arguments' => array('form' => NULL),
+      'file'      => 'pm_block_user.admin.inc',
     ),
   );
 }
