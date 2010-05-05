@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_filter.admin.inc,v 1.5 2010-03-22 07:02:09 berdir Exp $
+// $Id: privatemsg_filter.admin.inc,v 1.6 2010-05-05 20:56:19 berdir Exp $
 
 /**
  * @file
@@ -192,34 +192,6 @@ function privatemsg_filter_admin() {
   );
 
   return system_settings_form($form);
-}
-
-/**
- * Form callback for adding a tag to threads.
- */
-function privatemsg_filter_add_tag_submit($form, &$form_state) {
-  $operation = array(
-    'callback' => 'privatemsg_filter_add_tags',
-    'callback arguments' => array('tag_id' => $form_state['values']['tag-add']),
-    'undo callback' => 'privatemsg_filter_remove_tags',
-    'undo callback arguments' => array('tag_id' => $form_state['values']['tag-add']),
-  );
-  drupal_set_message(t('The selected conversations have been tagged.'));
-  privatemsg_operation_execute($operation, $form_state['values']['threads']);
-}
-
-/**
- * Form callback for removing a tag to threads.
- */
-function privatemsg_filter_remove_tag_submit($form, &$form_state) {
-  $operation = array(
-    'callback' => 'privatemsg_filter_remove_tags',
-    'callback arguments' => array('tag_id' => $form_state['values']['tag-remove']),
-    'undo callback' => 'privatemsg_filter_add_tags',
-    'undo callback arguments' => array('tag_id' => $form_state['values']['tag-remove']),
-  );
-  drupal_set_message(t('The tag has been removed from the selected conversations.'));
-  privatemsg_operation_execute($operation, $form_state['values']['threads']);
 }
 
 /**
