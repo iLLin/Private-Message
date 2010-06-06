@@ -1,7 +1,13 @@
 <?php
-// $Id: privatemsg_rules.module,v 1.2 2010-03-12 15:59:54 berdir Exp $
+// $Id: privatemsg_rules.module,v 1.3 2010-06-06 15:13:47 berdir Exp $
+
 /**
- * Implementation of hook_rules_privatemsg_message_insert().
+ * @file
+ * Hooks and callback functions for rules.module integration.
+ */
+
+/**
+ * Implements hook_rules_privatemsg_message_insert().
  */
 function privatemsg_rules_privatemsg_message_insert($message) {
   foreach ($message['recipients'] as $recipient) {

@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.test,v 1.13 2010-06-06 12:04:25 berdir Exp $
+// $Id: privatemsg.test,v 1.14 2010-06-06 15:13:47 berdir Exp $
 /**
  * @file
  * Test file for privatemsg.module
@@ -669,13 +669,5 @@ class PrivatemsgTestCase extends DrupalWebTestCase {
     $this->assertText(t('Restored @count thread.', array('@count' => 1)), t('Restore message displayed'));
     $this->assertText($message['subject'], t('Message is displayed again.'));
     $this->assertNoText(t('No messages available.'), t('Messages are available.'));
-  }
-
-  /**
-   * Implementation of tearDown().
-   */
-  function tearDown() {
-    //we dont really need to do this. i'm adding it just to keep it in front of my eyes so i can memorize it.
-    parent::tearDown();
   }
 }

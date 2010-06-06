@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.views.inc,v 1.2 2009-11-30 17:37:16 berdir Exp $
+// $Id: privatemsg.views.inc,v 1.3 2010-06-06 15:13:47 berdir Exp $
 /**
  * @file
  * Provide views data and handlers for privatemsg.module
@@ -20,7 +20,7 @@ function privatemsg_views_data() {
 
 
 /**
- * Implementation of hook_views_handlers().
+ * Implements hook_views_handlers().
  */
 function privatemsg_views_handlers() {
   return array(

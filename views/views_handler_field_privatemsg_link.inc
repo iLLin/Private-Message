@@ -1,5 +1,5 @@
 <?php
-// $Id: views_handler_field_privatemsg_link.inc,v 1.4 2010-04-09 15:30:38 berdir Exp $
+// $Id: views_handler_field_privatemsg_link.inc,v 1.5 2010-06-06 15:13:47 berdir Exp $
 
 /**
  * @file
@@ -35,7 +35,7 @@ class views_handler_field_privatemsg_link extends views_handler_field {
    * Define the configuration form for our textfield.
    */
   function options_form(&$form, &$form_state) {
-     $form['label'] = array(
+    $form['label'] = array(
       '#type' => 'textfield',
       '#title' => t('Label'),
       '#default_value' => isset($this->options['label']) ? $this->options['label'] : '',
@@ -70,7 +70,7 @@ class views_handler_field_privatemsg_link extends views_handler_field {
       '#description' => t('If non-empty, users will be forwared to the given url. You can use replacement tokens to insert any existing field output.'),
       '#process' => array('views_process_dependency'),
       '#dependency' => array(
-        'edit-options-return' => array(1)
+        'edit-options-return' => array(1),
       ),
     );
 

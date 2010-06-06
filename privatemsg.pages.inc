@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.pages.inc,v 1.3 2010-05-03 09:17:49 berdir Exp $
+// $Id: privatemsg.pages.inc,v 1.4 2010-06-06 15:13:47 berdir Exp $
 
 /**
  * @file
@@ -119,7 +119,7 @@ function privatemsg_view($thread) {
       'query' => array('start' => $thread['older_start']),
       'title' => t('Display older messages'),
     );
-     $older = l(t('<<'), 'messages/view/' . $thread['thread_id'], $options);
+    $older = l(t('<<'), 'messages/view/' . $thread['thread_id'], $options);
   }
   $newer = '';
   if (isset($thread['newer_start'])) {
