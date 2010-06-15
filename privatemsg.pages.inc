@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.pages.inc,v 1.4 2010-06-06 15:13:47 berdir Exp $
+// $Id: privatemsg.pages.inc,v 1.5 2010-06-15 08:15:11 berdir Exp $
 
 /**
  * @file
@@ -387,6 +387,9 @@ function privatemsg_new_validate($form, &$form_state) {
  * Submit callback for the privatemsg_new form.
  */
 function privatemsg_new_submit($form, &$form_state) {
+  // Clear form_state storage so that it does not rebuild.
+  $form_state['storage'] = NULL;
+
   $status = _privatemsg_send($form_state['validate_built_message']);
   // Load usernames to which the message was sent to.
   $recipient_names = array();
