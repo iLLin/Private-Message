@@ -1,5 +1,5 @@
 <?php
-// $Id: pm_block_user.pages.inc,v 1.2 2010-02-17 11:03:30 berdir Exp $
+// $Id: pm_block_user.pages.inc,v 1.3 2010-07-06 18:03:07 berdir Exp $
 
 /**
  * @file
@@ -110,7 +110,7 @@ function pm_block_user_list() {
   $rows = array();
   while ($row = db_fetch_object($result)) {
     $rows[] = array(
-      theme('username', user_load($row->author)),
+      theme('username', privatemsg_user_load($row->author)),
       l(t('unblock'), 'messages/block/' . $row->author, array('query' => drupal_get_destination())),
     );
   }

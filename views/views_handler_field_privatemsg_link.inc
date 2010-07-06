@@ -1,5 +1,5 @@
 <?php
-// $Id: views_handler_field_privatemsg_link.inc,v 1.5 2010-06-06 15:13:47 berdir Exp $
+// $Id: views_handler_field_privatemsg_link.inc,v 1.6 2010-07-06 18:03:07 berdir Exp $
 
 /**
  * @file
@@ -150,7 +150,7 @@ class views_handler_field_privatemsg_link extends views_handler_field {
     }
 
     $data = '';
-    if (($recipient = user_load($uid)) && ($url = privatemsg_get_link(array($recipient), NULL, $subject))) {
+    if (($recipient = privatemsg_user_load($uid)) && ($url = privatemsg_get_link(array($recipient), NULL, $subject))) {
       $data = l($text, $url, $options);
     }
     return $data;

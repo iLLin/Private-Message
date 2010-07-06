@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsgapi.test,v 1.5 2010-06-04 06:29:00 berdir Exp $
+// $Id: privatemsgapi.test,v 1.6 2010-07-06 18:03:07 berdir Exp $
 
 /**
  * @file
@@ -94,7 +94,7 @@ class PrivatemsgAPITestCase extends DrupalWebTestCase {
     // Reset user_access cache
     user_access('', $author, TRUE);
 
-    $resultok = privatemsg_new_thread( array($recipient2, $recipient1, $recipient3), 'test reply', 'body text', array('author' => $author));
+    $resultok = privatemsg_new_thread(array($recipient2, $recipient1, $recipient3), 'test reply', 'body text', array('author' => $author));
     $this->assertTrue($resultok['success'], 'Private message could be sent successfully');
 
     $thread_row = $this->getMessageFromSubject('test reply');
