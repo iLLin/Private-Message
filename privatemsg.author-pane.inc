@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.author-pane.inc,v 1.3 2010-07-10 16:10:32 berdir Exp $
+// $Id: privatemsg.author-pane.inc,v 1.4 2010-07-11 15:47:24 berdir Exp $
 
 /**
  * @file
@@ -11,7 +11,7 @@
  */
 function privatemsg_preprocess_author_pane(&$variables) {
   // Check if this preprocess needs to be run given who's calling it.
-  if (!author_pane_run_preprocess('privatemsg', $variables['caller'])) {
+  if (function_exists('author_pane_run_preprocess') && !author_pane_run_preprocess('privatemsg', $variables['caller'])) {
     return;
   }
 
