@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.module,v 1.136 2010-07-12 08:13:55 berdir Exp $
+// $Id: privatemsg.module,v 1.137 2010-07-12 09:05:57 berdir Exp $
 
 /**
  * @file
@@ -1152,7 +1152,7 @@ function privatemsg_user($op, &$edit, &$account, $category = NULL) {
       }
 
       // Delete recipient entries of that user.
-      db_query("DELETE FROM {pm_index} WHERE recipient = %d and type = 'user'", $account->uid);
+      db_query("DELETE FROM {pm_index} WHERE recipient = %d and type IN ('user', 'hidden')", $account->uid);
 
       // DELETE any disable flag for user.
       db_query("DELETE from {pm_disable} WHERE uid = %d", $account->uid);
