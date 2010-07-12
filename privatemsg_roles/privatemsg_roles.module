@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_roles.module,v 1.1 2010-07-07 09:53:59 berdir Exp $
+// $Id: privatemsg_roles.module,v 1.2 2010-07-12 17:01:00 berdir Exp $
 
 /**
  * @file
@@ -60,6 +60,9 @@ function privatemsg_roles_load_multiple($rids) {
  * Format a role to be displayed as a recipient.
  */
 function theme_privatemsg_roles_format($role, $options = array()) {
+  if (!empty($options['plain'])) {
+    return $role->name . ' ' . t('[role]');
+  }
   return t('%role (role)', array('%role' => $role->name));
 }
 
