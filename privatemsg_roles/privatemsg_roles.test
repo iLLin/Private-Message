@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_roles.test,v 1.4 2010-07-12 17:01:00 berdir Exp $
+// $Id: privatemsg_roles.test,v 1.5 2010-07-12 19:45:49 berdir Exp $
 
 /**
  * @file
@@ -155,6 +155,11 @@ class PrivatemsgRolesTestCase extends DrupalWebTestCase {
     $edit = array('roles' => $user2->roles + $user1->roles);
     user_save($user2, $edit);
     $this->drupalLogin($admin);
+
+    // Verify autocomplete feature.
+    $json = $this->drupalGet('messages/user-name-autocomplete/' . drupal_substr($user1->roles[4], 0, 2));
+    $autocomplete = (array)json_decode($json);
+    $this->assertEqual($autocomplete[$user1->roles[4] . ' [role], '], $user1->roles[4] . ' [role]');
 
     // Access the form through a url that pre-fills the recipient field.
     $this->drupalGet('messages/new/role_4');

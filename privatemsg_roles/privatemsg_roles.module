@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg_roles.module,v 1.2 2010-07-12 17:01:00 berdir Exp $
+// $Id: privatemsg_roles.module,v 1.3 2010-07-12 19:45:49 berdir Exp $
 
 /**
  * @file
@@ -107,7 +107,7 @@ function privatemsg_roles_autocomplete($fragment, $names, $limit) {
   // 3: Build proper suggestions and print.
   $matches = array();
   while ($role = db_fetch_object($result)) {
-    $matches[] = $role->name;
+    $matches[] = $role->name . ' ' . t('[role]');
   }
   return $matches;
 }
@@ -117,7 +117,7 @@ function privatemsg_roles_autocomplete($fragment, $names, $limit) {
  */
 function privatemsg_roles_privatemsg_name_lookup($string) {
   // Remove optonal role specifier.
-  $string = str_replace('[role]', '', $string);
+  $string = trim(str_replace(t('[role]'), '', $string));
   $result = db_query("SELECT *, rid AS recipient FROM {role} WHERE name = '%s'", trim($string));
   if ($role = db_fetch_object($result)) {
     $role->type = 'role';
