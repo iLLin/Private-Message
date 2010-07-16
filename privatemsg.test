@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.test,v 1.19 2010-07-12 19:45:49 berdir Exp $
+// $Id: privatemsg.test,v 1.20 2010-07-16 14:01:21 berdir Exp $
 /**
  * @file
  * Test file for privatemsg.module
@@ -208,9 +208,9 @@ class PrivatemsgTestCase extends DrupalWebTestCase {
     $this->drupalLogin($author);
     $this->drupalGet('messages/new');
 
-    // Prepare edit arrays, single recipient.
+    // Prepare edit arrays, single recipient with [user].
     $edit = array(
-      'recipient'   => $recipient->name,
+      'recipient'   => $recipient->name . ' [user]',
       'subject'     => $this->randomName(20),
       'body'        => $this->randomName(100),
     );
