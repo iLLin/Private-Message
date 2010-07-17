@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.test,v 1.20 2010-07-16 14:01:21 berdir Exp $
+// $Id: privatemsg.test,v 1.21 2010-07-17 10:34:43 berdir Exp $
 /**
  * @file
  * Test file for privatemsg.module
@@ -386,7 +386,7 @@ class PrivatemsgTestCase extends DrupalWebTestCase {
     $this->assertResponse(200, t('HTTP Response 200: Access to reading messages page is allowed.'));
 
     // Verify that $disableduser can read messages but there is not reply form.
-    $this->drupalGet('messages/'. $return['message']['thread_id']);
+    $this->drupalGet('messages/view/' . $return['message']['thread_id']);
     $this->assertResponse(200, t('HTTP Response 200: Access to message thread page is allowed.'));
     $this->assertNoText(t('Reply to thread'), 'No reply form shown.');
 
