@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.pages.inc,v 1.11 2010-07-24 08:45:33 berdir Exp $
+// $Id: privatemsg.pages.inc,v 1.12 2010-08-11 13:18:50 berdir Exp $
 
 /**
  * @file
@@ -393,7 +393,7 @@ function privatemsg_new_validate($form, &$form_state) {
   }
   $form_state['validate_built_message'] = $message;
   if (!empty($invalid)) {
-    drupal_set_message(t('The following users will not receive this private message: !invalid', array('!invalid' => implode(", ", $invalid))), 'error');
+    drupal_set_message(t('The following users will not receive this private message: @invalid', array('@invalid' => implode(", ", $invalid))), 'error');
   }
 }
 
