@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.pages.inc,v 1.12 2010-08-11 13:18:50 berdir Exp $
+// $Id: privatemsg.pages.inc,v 1.13 2010-08-12 08:07:25 berdir Exp $
 
 /**
  * @file
@@ -424,6 +424,12 @@ function privatemsg_new_submit($form, &$form_state) {
       elseif (!empty($redirect)) {
         $form_state['redirect'] = $redirect;
       }
+    }
+    // Replace [new-message] placeholder with actual destination.
+    if (!empty($_REQUEST['destination']) && $_REQUEST['destination'] == '[new-message]') {
+      // url() can not be used because it does create an path with base path and
+      // prefix.
+      $_REQUEST['destination'] =  urlencode(('messages/view/' . $status['thread_id'] . '#' . 'privatemsg-mid-' . $status['mid']));
     }
   }
   else {

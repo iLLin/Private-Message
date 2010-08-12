@@ -1,5 +1,5 @@
 <?php
-// $Id: views_handler_field_privatemsg_link.inc,v 1.6 2010-07-06 18:03:07 berdir Exp $
+// $Id: views_handler_field_privatemsg_link.inc,v 1.7 2010-08-12 08:07:25 berdir Exp $
 
 /**
  * @file
@@ -88,6 +88,10 @@ class views_handler_field_privatemsg_link extends views_handler_field {
       $options[t('Arguments')]['%' . ++$count] = $handler->ui_name();
     }
 
+    // Add documentation about the new message token. Note that this is not
+    // a real token that will be replaced but it is handled in
+    // privatemsg_send_submit().
+    $options[t('Privatemsg')]['[new-message]'] = t('This will redirect to the newly sent message.');
 
     // Default text.
     $output = t('<p>You must add some additional fields to this display before using this field. These fields may be marked as <em>Exclude from display</em> if you prefer. Note that due to rendering order, you cannot use fields that come after this field; if you need a field not listed here, rearrange your fields.</p>');
