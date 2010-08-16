@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.api.php,v 1.3 2010-07-06 18:03:07 berdir Exp $
+// $Id: privatemsg.api.php,v 1.4 2010-08-16 08:12:25 berdir Exp $
 
 /**
  * @file
@@ -403,13 +403,16 @@ function hook_privatemsg_message_recipient_changed($mid, $thread_id, $recipient,
  *
  * @param $author
  *   Author of the message to be sent
- * @param $recipient
+ * @param $recipients
  *   Recipient of the message
+ * @param $context
+ *   Additional information. Can contain the thread_id to indicate that this is
+ *   a reply on an existing thread.
  * @return
  *   An indexed array of arrays with the keys recipient ({type}_{key}) and
  *   message (The reason why the recipient has been blocked).
  */
-function hook_privatemsg_block_message($author, $recipients) {
+function hook_privatemsg_block_message($author, $recipients, $context = array()) {
   $blocked = array();
   foreach($recipients as $recipient_id => $recipient) {
     // Deny/block if the recipient type is role and the account does not have

@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.pages.inc,v 1.13 2010-08-12 08:07:25 berdir Exp $
+// $Id: privatemsg.pages.inc,v 1.14 2010-08-16 08:12:25 berdir Exp $
 
 /**
  * @file
@@ -212,7 +212,7 @@ function privatemsg_new(&$form_state, $recipients = array(), $subject = '', $thr
     }
 
     // Check if another module is blocking the sending of messages to the recipient by current user.
-    $user_blocked = module_invoke_all('privatemsg_block_message', $user, array(privatemsg_recipient_key($recipient) => $recipient));
+    $user_blocked = module_invoke_all('privatemsg_block_message', $user, array(privatemsg_recipient_key($recipient) => $recipient), array('thread_id' => $thread_id));
     if (!count($user_blocked) <> 0 && $recipient->recipient) {
       if ($recipient->type == 'user' && $recipient->recipient == $user->uid) {
         $usercount++;
