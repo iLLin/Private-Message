@@ -1,5 +1,5 @@
 <?php
-// $Id: privatemsg.theme.inc,v 1.3 2010-07-12 06:56:53 berdir Exp $
+// $Id: privatemsg.theme.inc,v 1.4 2010-08-17 13:05:41 berdir Exp $
 
 /**
  * @file
@@ -301,8 +301,8 @@ function theme_privatemsg_new_block($count) {
     $text = t('Click here to go to your messages.');
   }
   else {
-    $text = format_plural($count, 'You have a new message, click here to read it',
-                        'You have @count new messages, click here to read them',
+    $text = format_plural($count, 'You have a new message! Click here to read it.',
+                        'You have @count new messages! Click here to read them.',
                         array('@count' => $count));
     }
 
